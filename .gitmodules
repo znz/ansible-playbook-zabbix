@@ -1,0 +1,3 @@
+[submodule "provisioning/roles/znzj.ja_jp"]
+	path = provisioning/roles/znzj.ja_jp
+	url = https://github.com/znz/ansible-role-ja_jp
