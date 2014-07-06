@@ -19,9 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", ENV["VM_MEMORY"] || "512"]
   end
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provision/site.yml"
-    ansible.verbose = ENV["ANSIBLE_VERBOSE"] if ENV["ANSIBLE_VERBOSE"]
-    ansible.tags = ENV["ANSIBLE_TAGS"] if ENV["ANSIBLE_TAGS"]
+  if ENV["ANSIBLE_REMOTE"]
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provision/site.yml"
+      ansible.verbose = ENV["ANSIBLE_VERBOSE"] if ENV["ANSIBLE_VERBOSE"]
+      ansible.tags = ENV["ANSIBLE_TAGS"] if ENV["ANSIBLE_TAGS"]
+    end
+  else
+    config.vm.provision :shell, :path => 'provision/provision.sh'
   end
 end
