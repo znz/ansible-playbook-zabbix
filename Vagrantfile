@@ -28,4 +28,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   else
     config.vm.provision :shell, :path => 'provision/provision.sh'
   end
+  config.vm.network :forwarded_port, guest: 80, host: 8022
 end
