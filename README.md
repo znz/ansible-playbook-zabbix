@@ -7,9 +7,8 @@ My template playbook with ja\_jp role.
 ### Initialize
 
 ```
-% git clone https://github.com/znz/ansible-playbook-trusty
-% cd ansible-playbook-trusty
-% git submodule init
-% git submodule update
-% vagrant up
+    % git clone https://github.com/znz/ansible-playbook-trusty
+    % cd ansible-playbook-trusty
+    % ansible-galaxy install -f -p provision/roles -r provision/roles/Rolefile
+    % vagrant up
 ```
