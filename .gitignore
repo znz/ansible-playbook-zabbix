@@ -1,1 +1,2 @@
 /.vagrant/
+*.pg_dump
