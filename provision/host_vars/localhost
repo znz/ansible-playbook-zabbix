@@ -1,2 +1,2 @@
 ---
-zabbix_start_pingers: 10
+zabbix_server_start_pingers: 5
