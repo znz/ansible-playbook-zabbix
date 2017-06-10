@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  pre_tasks:
+  - name: "Install etckeeper"
+    apt: name=etckeeper
+  roles:
+  - role: znzj.ja_jp
+  - role: znz.ufw
+    ufw_default_forward_policy: reject
+    ufw_allow_in_tcp:
+    - comment: "HTTP"
+      port: 80
+    - comment: "HTTPS"
+      port: 443
+    ufw_allow_out_tcp:
+    - comment: "HTTP"
+      port: 80
+    - comment: "SSH"
+      port: 22
+    #- comment: "SMTPS"
+    #  port: 465
+  - role: znz.journald
+  - role: znz.sshd
+  - role: znz.unattended-upgrades
+  - role: znz.nadoka
+    when: nadoka_irc_host is not none and nadoka_irc_host != ""
+  - role: znzj.zabbix
+    zabbix_server_conf: |
+      StartPingers=3
+      Timeout=5

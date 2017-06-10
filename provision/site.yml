@@ -1,7 +1,0 @@
----
-- hosts: all
-  sudo: yes
-  roles:
-  - znzj.ja_jp
-  - znzj.grub
-  - znzj.zabbix
