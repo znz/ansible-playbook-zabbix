@@ -34,10 +34,6 @@
     #  port: 3690
     #- comment: "Git"
     #  port: 9418
-    - comment: "IRC"
-      port: 6667
-    - comment: "IRCS"
-      port: 6697
     #- comment: "OpenPGP HTTP key server"
     #  port: 11371
 
