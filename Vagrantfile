@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       nadoka_slack_irc_host: ENV['NADOKA_SLACK_IRC_HOST'],
       nadoka_slack_irc_port: ENV['NADOKA_SLACK_IRC_PORT'],
       nadoka_slack_irc_pass: ENV['NADOKA_SLACK_IRC_PASS'],
-      nadoka_slack_irc_user: ENV['NADOKA_SLACK_IRC_USER'],
+      nadoka_slack_irc_nick: ENV['NADOKA_SLACK_IRC_NICK'],
     }
   end
 end
