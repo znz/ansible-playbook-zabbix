@@ -63,7 +63,7 @@ else
     rec_start=0
 fi
 if [ "$rec_start" -eq 1 -a -n "$NOTICE_SOCK" ]; then
-    /etc/zabbix/alert.d/notice.rb "$NOTICE_SOCK" "$new_rec_info"
+    /etc/zabbix/alert.d/notice.rb "$NOTICE_SOCK" "$NASNE_HOSTNAME $new_rec_info"
 fi
 {
     echo "- nasne.status.rec $rec"
