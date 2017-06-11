@@ -63,3 +63,4 @@
       Timeout=5
   - role: zabbix
     zabbix_nasne: "{{ local_zabbix_nasne.split(',') }}"
+  - role: znz.openvpn-client

@@ -53,6 +53,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       nadoka_slack_irc_nick: ENV['NADOKA_SLACK_IRC_NICK'],
       zabbix_nadoka_notice_sock: ENV['ZABBIX_NADOKA_NOTICE_SOCK'],
       local_zabbix_nasne: ENV['ZABBIX_NASNE'],
+      openvpn_client: [
+        {
+          name: ENV['OPENVPN_NAME'],
+          proto: ENV['OPENVPN_PROTO'],
+          host: ENV['OPENVPN_HOST'],
+          port: ENV['OPENVPN_PORT'],
+          cipher: ENV['OPENVPN_CIPHER'],
+          auth: ENV['OPENVPN_AUTH'],
+          tls_cipher: ENV['OPENVPN_TLS_CIPHER'],
+          ca_crt: ENV['OPENVPN_CA_CRT'],
+          ta_key: ENV['OPENVPN_TA_KEY'],
+          client_crt: ENV['OPENVPN_CLIENT_CRT'],
+          client_key: ENV['OPENVPN_CLIENT_KEY'],
+        },
+      ],
     }
   end
 end
