@@ -1,0 +1,1 @@
+zabbix ALL = (nadoka) NOPASSWD: /etc/zabbix/alert.d/notice.rb

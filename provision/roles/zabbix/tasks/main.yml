@@ -1,0 +1,27 @@
+---
+- name: "Create /etc/zabbix/alert.d"
+  file:
+    path: "/etc/zabbix/alert.d"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Install /etc/zabbix/alert.d/"
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/zabbix/alert.d/{{ item }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+  - "notice.rb"
+  - "slack.sh"
+
+- name: "Install /etc/sudoers.d/nadoka"
+  copy:
+    src: "sudoers-nadoka"
+    dest: "/etc/sudoers.d/nadoka"
+    owner: root
+    group: root
+    mode: 0640

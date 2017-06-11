@@ -51,3 +51,4 @@
     zabbix_server_conf: |
       StartPingers=3
       Timeout=5
+  - role: zabbix
