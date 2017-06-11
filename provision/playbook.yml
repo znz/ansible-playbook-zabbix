@@ -20,6 +20,12 @@
       port: 22
     #- comment: "SMTPS"
     #  port: 465
+    - comment: "zabbix-agent"
+      port: 10050
+    - comment: "LDAPS"
+      port: 636
+    - comment: "IMAPS"
+      port: 993
   - role: znz.journald
   - role: znz.sshd
   - role: znz.unattended-upgrades
