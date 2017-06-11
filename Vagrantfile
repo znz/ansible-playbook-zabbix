@@ -43,10 +43,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.galaxy_command = 'ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}'
     end
     ansible.extra_vars = {
-      nadoka_irc_host: ENV['NADOKA_IRC_HOST'],
-      nadoka_irc_port: ENV['NADOKA_IRC_PORT'],
-      nadoka_irc_pass: ENV['NADOKA_IRC_PASS'],
-      nadoka_channel_info: ENV['NADOKA_CHANNEL_INFO'],
+      nadoka_fprog_irc_host: ENV['NADOKA_FPROG_IRC_HOST'],
+      nadoka_fprog_irc_port: ENV['NADOKA_FPROG_IRC_PORT'],
+      nadoka_fprog_irc_pass: ENV['NADOKA_FPROG_IRC_PASS'],
+      nadoka_fprog_channel_info: ENV['NADOKA_FPROG_CHANNEL_INFO'],
+      nadoka_slack_irc_host: ENV['NADOKA_SLACK_IRC_HOST'],
+      nadoka_slack_irc_port: ENV['NADOKA_SLACK_IRC_PORT'],
+      nadoka_slack_irc_pass: ENV['NADOKA_SLACK_IRC_PASS'],
+      nadoka_slack_irc_user: ENV['NADOKA_SLACK_IRC_USER'],
     }
   end
 end

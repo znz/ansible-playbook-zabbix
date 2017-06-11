@@ -45,8 +45,22 @@
   - role: znz.sshd
   - role: znz.unattended-upgrades
   - role: znz.nadoka
+    nadoka_service_name: "nadoka-fprog"
+    nadoka_irc_host: "{{ nadoka_fprog_irc_host }}"
+    nadoka_irc_port: "{{ nadoka_fprog_irc_port }}"
+    nadoka_irc_pass: "{{ nadoka_fprog_irc_pass }}"
+    nadoka_channel_info: "{{ nadoka_fprog_channel_info }}"
     nadoka_irc_ssl_params: '{}'
-    when: nadoka_irc_host is not none and nadoka_irc_host != ""
+    when: nadoka_fprog_irc_host is not none and nadoka_fprog_irc_host != ""
+  - role: znz.nadoka
+    nadoka_service_name: "nadoka-slack"
+    nadoka_irc_host: "{{ nadoka_slack_irc_host }}"
+    nadoka_irc_port: "{{ nadoka_slack_irc_port }}"
+    nadoka_irc_pass: "{{ nadoka_slack_irc_pass }}"
+    nadoka_irc_user: "{{ nadoka_slack_irc_user }}"
+    nadoka_channel_info: ''
+    nadoka_irc_ssl_params: '{}'
+    when: nadoka_slack_irc_host is not none and nadoka_slack_irc_host != ""
   - role: znzj.zabbix
     zabbix_server_conf: |
       StartPingers=3
