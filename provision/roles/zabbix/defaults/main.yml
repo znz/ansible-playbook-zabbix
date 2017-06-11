@@ -1,0 +1,9 @@
+---
+zabbix_nasne: []
+#zabbix_nasne:
+#- "nasne1_192.168.1.11"
+#- "nasne2_192.168.1.12"
+zabbix_nadoka_notice_sock: ""
+zabbix_nasne_status_on_calendar: "*-*-* *:*:10"
+zabbix_nasne_user: nadoka
+zabbix_nasne_group: nadoka

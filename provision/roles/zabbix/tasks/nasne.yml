@@ -1,0 +1,36 @@
+---
+- name: "Install curl,jq"
+  apt:
+    name:
+    - curl
+    - jq
+
+# ufw out port
+- name: "Allow out to NASNE"
+  ufw:
+    rule: allow
+    direction: out
+    to_port: 64210
+    proto: tcp
+
+- name: "Install /etc/zabbix/*.sh"
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/zabbix/{{ item }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+  - "nasne-status.sh"
+
+- name: "Create nasne-status timer"
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/systemd/system/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Enable timers for nasne-status
+  with_items:
+  - "nasne-status@.service"
+  - "nasne-status@.timer"

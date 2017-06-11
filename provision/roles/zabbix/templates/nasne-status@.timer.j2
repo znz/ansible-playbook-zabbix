@@ -1,0 +1,9 @@
+[Unit]
+Description=Collect nasne status for %I
+
+[Timer]
+OnCalendar={{ zabbix_nasne_status_on_calendar }}
+Persistent=true
+
+[Install]
+WantedBy=timers.target

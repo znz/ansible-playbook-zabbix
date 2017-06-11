@@ -1,0 +1,8 @@
+---
+- name: "Enable timers for nasne-status"
+  systemd:
+    name: "nasne-status@{{ item }}.timer"
+    state: started
+    daemon_reload: yes
+    enabled: yes
+  with_items: "{{ zabbix_nasne }}"

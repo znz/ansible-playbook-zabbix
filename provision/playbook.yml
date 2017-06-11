@@ -62,3 +62,4 @@
       StartPingers=3
       Timeout=5
   - role: zabbix
+    zabbix_nasne: "{{ local_zabbix_nasne.split(',') }}"

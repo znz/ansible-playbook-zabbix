@@ -1,0 +1,11 @@
+[Unit]
+Description=Collect nasne status for %I
+
+[Service]
+Type=oneshot
+Environment=NOTICE_SOCK={{ zabbix_nadoka_notice_sock }}
+PermissionsStartOnly=true
+ExecStartPre=/usr/bin/install -o {{ zabbix_nasne_user }} -g {{ zabbix_nasne_group }} -m 0750 -d /run/nasne
+ExecStart=/etc/zabbix/nasne-status.sh %i
+User={{ zabbix_nasne_user }}
+Group={{ zabbix_nasne_group }}
