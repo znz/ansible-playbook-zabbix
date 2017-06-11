@@ -18,14 +18,29 @@
       port: 80
     - comment: "SSH"
       port: 22
-    #- comment: "SMTPS"
-    #  port: 465
-    - comment: "zabbix-agent"
-      port: 10050
-    - comment: "LDAPS"
-      port: 636
+    - comment: "SMTPS"
+      port: 465
+    - comment: "Submission"
+      port: 587
     - comment: "IMAPS"
       port: 993
+    - comment: "LDAPS"
+      port: 636
+    - comment: "zabbix-agent"
+      port: 10050
+    #- comment: "CVS"
+    #  port: 2041
+    #- comment: "Subversion"
+    #  port: 3690
+    #- comment: "Git"
+    #  port: 9418
+    - comment: "IRC"
+      port: 6667
+    - comment: "IRCS"
+      port: 6697
+    #- comment: "OpenPGP HTTP key server"
+    #  port: 11371
+
   - role: znz.journald
   - role: znz.sshd
   - role: znz.unattended-upgrades
