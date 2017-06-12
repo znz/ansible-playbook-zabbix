@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # without --force
       ansible.galaxy_command = 'ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}'
     end
-    ansible.extra_vars = {
+    vars = {
       nadoka_fprog_irc_host: ENV['NADOKA_FPROG_IRC_HOST'],
       nadoka_fprog_irc_port: ENV['NADOKA_FPROG_IRC_PORT'],
       nadoka_fprog_irc_pass: ENV['NADOKA_FPROG_IRC_PASS'],
@@ -53,21 +53,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       nadoka_slack_irc_nick: ENV['NADOKA_SLACK_IRC_NICK'],
       zabbix_nadoka_notice_sock: ENV['ZABBIX_NADOKA_NOTICE_SOCK'],
       local_zabbix_nasne: ENV['ZABBIX_NASNE'],
-      openvpn_client: [
-        {
-          name: ENV['OPENVPN_NAME'],
-          proto: ENV['OPENVPN_PROTO'],
-          host: ENV['OPENVPN_HOST'],
-          port: ENV['OPENVPN_PORT'],
-          cipher: ENV['OPENVPN_CIPHER'],
-          auth: ENV['OPENVPN_AUTH'],
-          tls_cipher: ENV['OPENVPN_TLS_CIPHER'],
-          ca_crt: ENV['OPENVPN_CA_CRT'],
-          ta_key: ENV['OPENVPN_TA_KEY'],
-          client_crt: ENV['OPENVPN_CLIENT_CRT'],
-          client_key: ENV['OPENVPN_CLIENT_KEY'],
-        },
-      ],
+      openvpn_client: []
     }
+    if ENV['OPENVPN_NAME']
+      vars[:openvpn_client] << {
+        name: ENV['OPENVPN_NAME'],
+        proto: ENV['OPENVPN_PROTO'],
+        host: ENV['OPENVPN_HOST'],
+        port: ENV['OPENVPN_PORT'],
+        cipher: ENV['OPENVPN_CIPHER'],
+        auth: ENV['OPENVPN_AUTH'],
+        tls_cipher: ENV['OPENVPN_TLS_CIPHER'],
+        ca_crt: ENV['OPENVPN_CA_CRT'],
+        ta_key: ENV['OPENVPN_TA_KEY'],
+        client_crt: ENV['OPENVPN_CLIENT_CRT'],
+        client_key: ENV['OPENVPN_CLIENT_KEY'],
+      }
+    end
+    ansible.extra_vars = vars
   end
 end
