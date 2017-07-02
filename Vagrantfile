@@ -51,6 +51,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       nadoka_slack_irc_port: ENV['NADOKA_SLACK_IRC_PORT'],
       nadoka_slack_irc_pass: ENV['NADOKA_SLACK_IRC_PASS'],
       nadoka_slack_irc_nick: ENV['NADOKA_SLACK_IRC_NICK'],
+      postfix_relay_smtp_server: ENV['SMTP_SERVER'],
+      postfix_relay_smtp_user: ENV['SMTP_USER'],
+      postfix_relay_smtp_pass: ENV['SMTP_PASS'],
+      postfix_alias_root: ENV['MAIL_ALIAS_ROOT'],
       zabbix_nadoka_notice_sock: ENV['ZABBIX_NADOKA_NOTICE_SOCK'],
       local_zabbix_nasne: ENV['ZABBIX_NASNE'],
       openvpn_client: []
